@@ -1,0 +1,356 @@
+Clase 1
+use superliga
+
+db.createcollection("equipos")
+
+db.equipos.insert(name:"Boca",socios: 45000, estadio:"J Armando")
+db.equipos.inser(name: "River",estadio:"V. Liberti",capacidad:50000)
+db.equipos.insert(name:"San Lorenzo",socios: 25000)
+db.equipos.insert(name:"Racing",estadio:"Juan D. Peron",capacidad:45000)
+db.equipos.insert(name:"Independiente", estadio:"Libertadores de america")
+
+db.equipos.find({})
+
+Clase 2
+
+db.movies.insert(titulo:"Volver al futuro",year:1985,rating:4.7,genre:"ciencia ficcion",description:"Un joven y un cientifico viajan en el tiempo",actor:["M. J. Fox","Christopher Lloyd"],country:"USA",income:381109762,duration:116)
+db.movies.insertOne(titulo:"El secreto de sus ojos",year:2009,rating:4.5,genre:"drama",description:"Investigacion de un crimen",actor:["Ricardo Darin","Soledad Villamil"],country:"Argentina",income:56965279,duration:127)
+db.movies.insertMany({titulo:"deja vu",year:2006,rating:4.3,genre:"ciencia ficcion",description:"Un detective viajan en el tiempo para evitar un atentado",actor:["denzel Washington","Paula Patton"],country:"USA",income:180557550,duration:128},
+                     {titulo:"Ocean Eleven",year:2001,rating:4.0,genre:"policial",description:"El robo a un casino en Las Vegas",actor:["George Clooney","Matt Damon","Brad Pitt"],country:"USA",income:185000789,duration:115})
+
+db.movies.updateMany({rating:{$gt:4.5}},{$set:{highlighted:true}})
+db.movies.updateMany({genre:"drama"},{$set:{genre:"bored"}})
+
+db.movies.deleteMany({year:{$lt:1989}}) // de manera Hardcodeada
+db.getCollection('movies').deleteMany({year: { $gt: (new Date().getFullYear() - 30) }}) // de manera dinamica
+
+db.movies.find({country:"Argentina"})
+db.movies.find({genre:"accion",rating:{$gt:4}})
+
+
+db.movies.insertMany({   titulo:"Volver al futuro 1",
+    year:1985,
+    rating:4.7,
+    genre:"ciencia ficcion",
+    description:"Un joven y un cientifico viajan en el tiempo",
+    actor:["M. J. Fox","Christopher Lloyd"],
+    country:"USA",
+    income:381109762,
+    duration:116    
+},
+{   titulo:"Volver al futuro 2",
+    year:1989,
+    rating:4.5,
+    genre:"ciencia ficcion",
+    description:"Un joven y un cientifico viajan en el tiempo",
+    actor:["M. J. Fox","Christopher Lloyd"],
+    country:"USA",
+    income:331950762,
+    duration:108    
+},
+{   titulo:"Volver al futuro 3",
+    year:1990,
+    rating:4.2,
+    genre:"ciencia ficcion",
+    description:"Un joven y un cientifico viajan en el tiempo",
+    actor:["M. J. Fox","Christopher Lloyd"],
+    country:"USA",
+    income:224527583,
+    duration:116    
+},
+{   titulo:"El señor de los anillos La comunidad del anillo",
+    year:2001,
+    rating:4.1,
+    genre:"aventura",
+    description:"Las aventuras del Hobbit Frodo Bolson",
+    actor:["Elijah Wood","Vigo Mortensen"],
+    country:["USA","UK","Nueva Zelanda"],
+    income:870761744,
+    duration:176    
+},
+{   titulo:"El señor de los anillos Las dos Torres",
+    year:2002,
+    rating:3.8,
+    genre:"aventura",
+    description:"Las aventuras del Hobbit Frodo Bolson",
+    actor:["Elijah Wood","Vigo Mortensen"],
+    country:["USA","UK","Nueva Zelanda"],
+    income:925761744,
+    duration:179    
+},
+{   titulo:"El señor de los anillos El retorno del rey",
+    year:2003,
+    rating:4.8,
+    genre:"aventura",
+    description:"Las aventuras del Hobbit Frodo Bolson",
+    actor:["Elijah Wood","Vigo Mortensen"],
+    country:["USA","UK","Nueva Zelanda"],
+    income:1119110941,
+    duration:200    
+},
+{   titulo:"Sherlock Holmes",
+    year:2009,
+    rating:4.1,
+    genre:"accion",
+    description:"Una historia del famoso detective Sherlock Holmes",
+    actor:["Robert Downey","Jude Law"],
+    country:["USA","UK","Australia"],
+    income:524770000,
+    duration:128    
+},
+{   titulo:"Sherlock Holmes Juego de sombras",
+    year:2011,
+    rating:4.5,
+    genre:"accion",
+    description:"Una historia del famoso detective Sherlock Holmes",
+    actor:["Robert Downey","Jude Law"],
+    country:["USA","UK","Australia"],
+    income:545770000,
+    duration:129    
+},
+{   titulo:"Harry Potter y la piedra filosofal",
+    year:2001,
+    rating:3.9,
+    genre:"fantasia",
+    description:"Las aventuras de un joven mago y sus amigos",
+    actor:["Daniel Radcliffe","Emma Watson","Rupert Grint"],
+    country:["USA","UK"],
+    income:345770000,
+    duration:152    
+},
+{   titulo:"Harry Potter y la camara secreta",
+    year:2002,
+    rating:4.0,
+    genre:"fantasia",
+    description:"Las aventuras de un joven mago y sus amigos",
+    actor:["Daniel Radcliffe","Emma Watson","Rupert Grint"],
+    country:["USA","UK"],
+    income:348770000,
+    duration:162    
+},
+{   titulo:"Harry Potter y el pricionero de Azkaban",
+    year:2004,
+    rating:4.2,
+    genre:"fantasia",
+    description:"Las aventuras de un joven mago y sus amigos",
+    actor:["Daniel Radcliffe","Emma Watson","Rupert Grint"],
+    country:["USA","UK"],
+    income:356770000,
+    duration:141    
+},
+{   titulo:"Harry Potter y el caliz de fuego",
+    year:2005,
+    rating:4.5,
+    genre:"fantasia",
+    description:"Las aventuras de un joven mago y sus amigos",
+    actor:["Daniel Radcliffe","Emma Watson","Rupert Grint"],
+    country:["USA","UK"],
+    income:390770000,
+    duration:157    
+},
+{   titulo:"Harry Potter y la Orden del Fenix",
+    year:2006,
+    rating:3.9,
+    genre:"fantasia",
+    description:"Las aventuras de un joven mago y sus amigos",
+    actor:["Daniel Radcliffe","Emma Watson","Rupert Grint"],
+    country:["USA","UK"],
+    income:323770000,
+    duration:138    
+},
+{   titulo:"Harry Potter y el misterio del principe mestizo",
+    year:2009,
+    rating:4.1,
+    genre:"fantasia",
+    description:"Las aventuras de un joven mago y sus amigos",
+    actor:["Daniel Radcliffe","Emma Watson","Rupert Grint"],
+    country:["USA","UK"],
+    income:325670000,
+    duration:153    
+},
+{   titulo:"Harry Potter y las reliquias de la muerte parte 1",
+    year:2010,
+    rating:4.3,
+    genre:"fantasia",
+    description:"Las aventuras de un joven mago y sus amigos",
+    actor:["Daniel Radcliffe","Emma Watson","Rupert Grint"],
+    country:["USA","UK"],
+    income:345670000,
+    duration:146    
+},
+{   titulo:"Harry Potter y las reliquias de la muerte parte 2",
+    year:2011,
+    rating:4.5,
+    genre:"fantasia",
+    description:"Las aventuras de un joven mago y sus amigos",
+    actor:["Daniel Radcliffe","Emma Watson","Rupert Grint"],
+    country:["USA","UK"],
+    income:456670000,
+    duration:276    
+},
+{   titulo:"El ciudadano Ilustre",
+    year:2016,
+    rating:4.5,
+    genre:"comedia",
+    description:"La historia de un escritor ganador del novel de literatura que vuelve a su pueblo natal",
+    actor:["Oscar Martinez","Andrea Frigerio","Dady Brieva"],
+    country:"Argentina",
+    income:485432,
+    duration:118    
+},
+{   titulo:"Mi obra maestra",
+    year:2018,
+    rating:4.6,
+    genre:"comedia",
+    description:"La historia de un artista plastico Bohemio",
+    actor:["Luis Brandoni","Guillermo Franchela"],
+    country:"Argentina",
+    income:2585432,
+    duration:105    
+},
+{   titulo:"Durante la tormenta",
+    year:2018,
+    rating:4.1,
+    genre:"Thriller",
+    description:"Una interferencia en el tiempo genera que se salve un niño y eso cambia la historia",
+    actor:["Chino Darin","Adriana Ugarte"],
+    country:"España",
+    income:2585432,
+    duration:128    
+},
+{   titulo:"Contratiempo",
+    year:2017,
+    rating:4.1,
+    genre:"Thriller",
+    description:"Un joven empresario es acusado del crimen de su esposa",
+    actor:["Mario Casas","Barbara Lennie"],
+    country:"España",
+    income:25985432,
+    duration:104    
+},
+{   titulo:"Mision Imposible",
+    year:1996,
+    rating:4.3,
+    genre:"Cine de Espionaje",
+    description:"Las aventuras de un agente secreto",
+    actor:["Tom Cruise","Ving Rhames"],
+    country:"USA",
+    income:345674222,
+    duration:108    
+},
+{   titulo:"Mision Imposible 2",
+    year:2000,
+    rating:4.5,
+    genre:"Cine de Espionaje",
+    description:"Las aventuras de un agente secreto",
+    actor:["Tom Cruise","Ving Rhames"],
+    country:"USA",
+    income:375674222,
+    duration:118    
+},
+{   titulo:"Mision Imposible 3",
+    year:2006,
+    rating:4.5,
+    genre:"Cine de Espionaje",
+    description:"Las aventuras de un agente secreto",
+    actor:["Tom Cruise","Ving Rhames"],
+    country:"USA",
+    income:545674222,
+    duration:128    
+},
+{   titulo:"Mision Imposible Protocolo Fantasma",
+    year:2011,
+    rating:4.6,
+    genre:"Cine de Espionaje",
+    description:"Las aventuras de un agente secreto",
+    actor:["Tom Cruise","Ving Rhames"],
+    country:"USA",
+    income:312674222,
+    duration:131    
+},
+{   titulo:"Mision Imposible Nacion Secreta",
+    year:2015,
+    rating:4.7,
+    genre:"Cine de Espionaje",
+    description:"Las aventuras de un agente secreto",
+    actor:["Tom Cruise","Ving Rhames"],
+    country:"USA",
+    income:234567444,
+    duration:121    
+},
+{  "titulo" : "Acusada",
+    "year" : 2018,
+    "rating" : 4.1,
+    "genre" : "drama",
+    "description" : "El caso de una joven acusada de asesinato",
+    "actor" : ["Lali Esposito","Leonardo Sbaraglia","Ines Estevez"],
+    "country" : "Argentina",
+    "income" : 555432,
+    "duration" : 118
+},
+{   titulo:"El Angel",
+    year:2018,
+    rating:4.5,
+    genre:"drama",
+    description:"La historia del asesino carlos Robledo Puch",
+    actor:["Lorenzo Ferro","Cecilia Roth","Chino Darin"],
+    country:"Argentina",
+    income:555432,
+    duration:118    
+})
+
+Clase 3
+
+Actividad 3
+
+Punto 2
+db.getCollection('movies').find({year:2018})
+db.movies.find({year:2018})
+
+Punto 3
+db.getCollection('movies').find({country:"USA"}).limit(10)
+db.movies.find({country:"USA"}).limit(10)
+
+Punto 4
+db.getCollection('movies').find({}).sort({income:-1}).limit(5)
+db.movies.find({}).sort({income:-1}).limit(5)
+
+Punto 5 - 4
+db.getCollection('movies').find({},{"titulo":1,"description":1,"genre":1}).sort({income:-1}).limit(5)
+db.movies.find({},{"titulo":1,"description":1,"genre":1}).sort({income:-1}).limit(5)
+
+Punto 5 - 3
+db.getCollection('movies').find({country:"USA"},{"titulo":1,"description":1,"genre":1}).limit(10)
+db.movies.find({},{"titulo":1,"description":1,"genre":1}).sort({income:-1}).limit(5)
+
+Punto 5 - 2
+db.getCollection('movies').find({year:2018},{"titulo":1,"description":1,"genre":1})
+db.movies.find({year:2018},{"titulo":1,"description":1,"genre":1})
+
+Punto 6
+db.getCollection('movies').distinct("country")
+db.movies.distinct("country")
+
+
+Actividad 4
+
+
+db.getCollection('movies').createIndex({rating:1})
+
+db.getCollection('movies').find({rating:{$gt:4}})
+db.getCollection('movies').find({rating:{$lt:4}})
+
+
+db.getCollection('movies').createIndex({titulo:"text",description:"text"})
+db.getCollection('movies').find({$text:{$search:"volver"}})
+db.getCollection('movies').find({$text:{$search:"historia"}})
+db.getCollection('movies').find({$text:{$search:"el"}})
+
+
+Clase 4
+
+db.getCollection('logs').insert({
+    timestamp:new Date('2014-12-11T10:12:00Z'),
+    level:"INFO",
+    message:"Application started"
+})

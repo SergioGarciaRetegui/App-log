@@ -1,0 +1,454 @@
+Correr Mongodb
+mongod
+
+mongo
+
+Mostrar DBs
+show dbs
+
+Create o use db
+
+use <DBname>
+
+Mostrar y crear collections
+
+show collections
+
+db.createCollection(“movies”)
+
+Insertar documentos
+
+db.movies.insert({
+    "titulo" : "Godzilla",
+    "year" : 2000,
+    "rating" : 5.0,
+    "genre" : "ficcion",
+    "description" : "Es una descripcion",
+    "actors" : [ 
+        "actor1", 
+        "actor2"
+    ],
+    "country" : "Japan",
+    "income" : 20,
+    "duration" : 90
+}
+)
+
+db.movies.insertOne({
+    "titulo" : "Pearl Harbor",
+    "year" : 2002,
+    "rating" : 4.5,
+    "genre" : "real",
+    "description" : "Es otra descripcion",
+    "actors" : [ 
+        "actor123", 
+        "bruce willy"
+    ],
+    "country" : "EEUU",
+    "income" : 10,
+    "duration" : 110
+}
+)
+
+
+db.movies.insertMany({
+    "titulo" : "Godzilla",
+    "year" : 2000,
+    "rating" : 5.0,
+    "genre" : "ficcion",
+    "description" : "Es una descripcion",
+    "actors" : [ 
+        "actor1", 
+        "actor2"
+    ],
+    "country" : "Japan",
+    "income" : 20,
+    "duration" : 90
+},
+{
+    "titulo" : "Pearl Harbor",
+    "year" : 2002,
+    "rating" : 4.5,
+    "genre" : "real",
+    "description" : "Es otra descripcion",
+    "actors" : [ 
+        "actor123", 
+        "bruce willy"
+    ],
+    "country" : "EEUU",
+    "income" : 10,
+    "duration" : 110
+})
+
+db.movies.insert({
+    "titulo" : "diamante de sangre",
+    "year" : 2002,
+    "rating" : 5.0,
+    "genre" : "drama",
+    "description" : "Es otra descripcion",
+    "actors" : [ 
+        "actor123", 
+        "el pibe"
+    ],
+    "country" : "EEUU",
+    "income" : 10,
+    "duration" : 110
+})
+
+
+Primera parte ejercicio 4
+
+db.movies.updateMany(
+... {rating: {$gt: 4.5}},
+... {
+... $set: {
+... highlighted: true
+... }})
+
+Primera parte ejercicio 5
+
+ db.movies.updateMany(
+... {genre: "drama"},
+... {
+... $set: {
+... genre:bored
+... }})
+
+Primera parte ejercicio 6
+
+db.movies.deleteMany(
+... {year: {$lt: 1989}}
+... )
+
+Primera parte ejercicio 7
+
+db.movies.find(
+... {country: “argentina”}
+... )
+
+Primera parte ejercicio 8
+
+db.movies.find( {genre: "accion"}, {rating: {$gt: 4.0}, {year: {$gt: 2017}})
+
+
+
+
+
+
+
+Segunda parte ejercicio 1
+{
+    "titulo" : "esperando la carroza",
+    "year" : 1987,
+    "rating" : 5.0,
+    "genre" : "comedia",
+    "description" : "Es otra descripcion",
+    "actors" : [ 
+        "actor123", 
+        "el pibe"
+    ],
+    "country" : "argentina",
+    "income" : 10,
+    "duration" : 110
+}
+
+{
+    "titulo" : "nueve reinas",
+    "year" : 2001,
+    "rating" : 5.0,
+    "genre" : "drama",
+    "description" : "Es otra descripcion",
+    "actors" : [ 
+        "actor123", 
+        "el pibe"
+    ],
+    "country" : "argentina",
+    "income" : 10,
+    "duration" : 110
+}
+
+{
+    "titulo" : "Guason",
+    "year" : 2019,
+    "rating" : 4.5,
+    "genre" : "ficcion",
+    "description" : "Es otra descripcion",
+    "actors" : [ 
+        "actor123", 
+        "bruce willy"
+    ],
+    "country" : "hollywood",
+    "income" : 2019,
+    "duration" : 110.0
+}
+
+{
+    "titulo" : "Midway batalla en el pacifico",
+    "year" : 2019,
+    "rating" : 3.0,
+    "genre" : "real",
+    "description" : "Es otra descripcion",
+    "actors" : [ 
+        "actor123", 
+        "bruce willy"
+    ],
+    "country" : "hollywood",
+    "income" : 2019,
+    "duration" : 110.0
+}
+
+{
+    "titulo" : "Pantera negra",
+    "year" : 2018,
+    "rating" : 4.0,
+    "genre" : "real",
+    "description" : "Es otra descripcion",
+    "actors" : [ 
+        "actor123", 
+        "bruce willy"
+    ],
+    "country" : "hollywood",
+    "income" : 2018,
+    "duration" : 110.0
+}
+
+{
+    "titulo" : "Los increibles 2",
+    "year" : 2018,
+    "rating" : 5.0,
+    "genre" : "real",
+    "description" : "Es otra descripcion",
+    "actors" : [ 
+        "actor123", 
+        "bruce willy"
+    ],
+    "country" : "hollywood",
+    "income" : 2018,
+    "duration" : 95
+}
+
+
+{
+    "titulo" : "Roma",
+    "year" : 2018,
+    "rating" : 5.0,
+    "genre" : "real",
+    "description" : "Es otra descripcion",
+    "actors" : [ 
+        "actor123", 
+        "bruce willy"
+    ],
+    "country" : "mexico",
+    "income" : 2018,
+    "duration" : 95
+}
+
+{
+    "titulo" : "Nace una estrella",
+    "year" : 2018,
+    "rating" : 5.0,
+    "genre" : "real",
+    "description" : "Es otra descripcion",
+    "actors" : [ 
+        "actor123", 
+        "bruce willy"
+    ],
+    "country" : "francia",
+    "income" : 2018,
+    "duration" : 95
+}
+
+{
+    "titulo" : "Dunkerke",
+    "year" : 2017,
+    "rating" : 5.0,
+    "genre" : "accion",
+    "description" : "Es otra descripcion",
+    "actors" : [ 
+        "actor123", 
+        "bruce willy"
+    ],
+    "country" : "holywood",
+    "income" : 2017,
+    "duration" : 95
+}
+
+{
+    "titulo" : "Coco",
+    "year" : 2017,
+    "rating" : 5.0,
+    "genre" : "comedia",
+    "description" : "Es otra descripcion",
+    "actors" : [ 
+        "actor123", 
+        "bruce willy"
+    ],
+    "country" : "mexico",
+    "income" : 2017,
+    "duration" : 95
+}
+
+{
+    "titulo" : "Verano 1993",
+    "year" : 2017,
+    "rating" : 5.0,
+    "genre" : "comedia",
+    "description" : "Es otra descripcion",
+    "actors" : [ 
+        "actor123", 
+        "bruce willy"
+    ],
+    "country" : "alemania",
+    "income" : 2017,
+    "duration" : 95
+}
+
+{
+    "titulo" : "La llegada",
+    "year" : 2016,
+    "rating" : 5.0,
+    "genre" : "drama",
+    "description" : "Es otra descripcion",
+    "actors" : [ 
+        "actor123", 
+        "bruce willy"
+    ],
+    "country" : "inglaterra",
+    "income" : 2016,
+    "duration" : 95
+}
+
+{
+    "titulo" : "Deadpool",
+    "year" : 2016,
+    "rating" : 5.0,
+    "genre" : "accion",
+    "description" : "Es otra descripcion",
+    "actors" : [ 
+        "actor123", 
+        "bruce willy"
+    ],
+    "country" : "hollywood",
+    "income" : 2016,
+    "duration" : 95
+}
+
+{
+    "titulo" : "Zootopia",
+    "year" : 2016,
+    "rating" : 5.0,
+    "genre" : "comedia",
+    "description" : "Es otra descripcion",
+    "actors" : [ 
+        "actor123", 
+        "bruce willy"
+    ],
+    "country" : "argentina",
+    "income" : 2016,
+    "duration" : 95
+}
+
+{
+    "titulo" : "Escuadron suicida",
+    "year" : 2016,
+    "rating" : 5.0,
+    "genre" : "fantasia",
+    "description" : "Es otra descripcion",
+    "actors" : [ 
+        "actor123", 
+        "bruce willy"
+    ],
+    "country" : "hollywood",
+    "income" : 2016,
+    "duration" : 95
+}
+
+
+{
+    "titulo" : "Escuadron suicida",
+    "year" : 2016,
+    "rating" : 5.0,
+    "genre" : "fantasia",
+    "description" : "Es otra descripcion",
+    "actors" : [ 
+        "actor123", 
+        "bruce willy"
+    ],
+    "country" : "hollywood",
+    "income" : 2016,
+    "duration" : 95
+}
+
+{
+    "titulo" : "Paterson",
+    "year" : 2016,
+    "rating" : 5.0,
+    "genre" : "comedia",
+    "description" : "Es otra descripcion",
+    "actors" : [ 
+        "actor123", 
+        "bruce willy"
+    ],
+    "country" : "croacia",
+    "income" : 2016,
+    "duration" : 95
+}
+{
+    "titulo" : "Que dios nos perdone",
+    "year" : 2016,
+    "rating" : 5.0,
+    "genre" : "accion",
+    "description" : "Es otra descripcion",
+    "actors" : [ 
+        "actor123", 
+        "bruce willy"
+    ],
+    "country" : "turkey",
+    "income" : 1000000,
+    "duration" : 95
+}
+
+
+
+
+
+
+
+
+
+
+Segunda parte ejercicio 2
+db.movies.find({
+... year: 2018})
+
+Segunda parte ejercicio 3
+db.movies.find({ country: "hollywood"}).limit(10)
+
+
+Segunda parte ejercicio 4
+db.movies.find({}, {}).sort({income: -1}).limit(5)
+
+Segunda parte ejercicio 5
+db.movies.find({
+... year: 2018}, {titulo: 1})
+
+db.movies.find({ country: "hollywood"}, {titulo: 1}).limit(10)
+
+db.movies.find({}, {titulo:1, _id:0}).sort({income: -1})
+
+
+Segunda parte ejercicio 6
+db.movies.distinct("country")
+
+Clase 3
+
+actividad 4
+
+db.movies.createIndex(
+... { rating: 1 })
+
+db.movies.createIndex(
+... { titulo: $search })
+
+db.movies.createIndex(
+... { description:  })
